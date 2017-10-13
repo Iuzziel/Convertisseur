@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Convertisseur</string>
+    <string name="btn_quit">Quitter</string>
+    <string name="btn_conv">Convertir</string>
+    <string name="start_money">Devise de départ</string>
+    <string name="end_money">Devise d\'arrivée</string>
+    <string name="listeDevises">tabDevise</string>
 </resources>
