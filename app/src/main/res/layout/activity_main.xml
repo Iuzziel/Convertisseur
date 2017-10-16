@@ -5,43 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="afpa.convertisseur.MainActivity"
-    tools:layout_editor_absoluteY="81dp"
-    tools:layout_editor_absoluteX="0dp">
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
     <TextView
         android:id="@+id/tvDeviseDep"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/start_money"
         android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/start_money"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinDeviseDepart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:entries="@array/listeDevises"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvDeviseDep"
         android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:entries="@array/listeDevises"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDeviseDep" />
 
     <TextView
         android:id="@+id/tvDeviseArriv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/end_money"
-        android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:text="@string/end_money"
+        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinDeviseDepart" />
 
     <Spinner
@@ -49,14 +49,14 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:entries="@array/listeDevises"
-        android:layout_marginTop="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/tvDeviseArriv"
         android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="15dp"
+        android:entries="@array/listeDevises"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDeviseArriv" />
 
     <Button
         android:id="@+id/btn_quit"
@@ -84,12 +84,12 @@
         android:id="@+id/tvMontant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/amount"
         android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/spinDeviseArrivee"
-        android:layout_marginStart="16dp" />
+        android:text="@string/amount"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinDeviseArrivee" />
 
     <EditText
         android:id="@+id/editMontant"
@@ -101,7 +101,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="number|numberDecimal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvMontant" />

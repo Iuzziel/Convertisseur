@@ -2,6 +2,7 @@ package afpa.convertisseur;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -38,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onQuit(View view) {
-        Toast.makeText(getBaseContext(), "Fermeture de l'application", Toast.LENGTH_LONG).show();
+        Log.i("Fin", "Fermeture de l'application.");
         System.exit(0);
     }
 }
