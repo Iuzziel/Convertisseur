@@ -2,23 +2,31 @@ package afpa.convertisseur;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import afpa.convertisseur.metier.Convert;
 
 public class Convertisseur extends AppCompatActivity {
+    private List<String> devises = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convertisseur);
+
+        chargeDevises();
+        chargerSpinner(R.id.spinDeviseDepart);
+        chargerSpinner(R.id.spinDeviseArrivee);
     }
 
     public void onClick(View view) {
@@ -40,7 +48,8 @@ public class Convertisseur extends AppCompatActivity {
                 TextView textView = (TextView) findViewById(R.id.tvResultat);
                 textView.setText(String.valueOf(df.format(result)));
             } else {
-                Toast.makeText(getBaseContext(), "Selectionnez les devises", Toast.LENGTH_LONG).show();
+                Toast.makeText(getBaseContext(), "Selectionnez les devises",
+                        Toast.LENGTH_LONG).show();
             }
         } catch (Exception e) {
             Toast.makeText(getBaseContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -49,7 +58,21 @@ public class Convertisseur extends AppCompatActivity {
     }
 
     public void onQuit(View view) {
-        Log.i("Fin", "Fermeture de l'application.");
         System.exit(0);
+    }
+
+    public void chargeDevises() {
+        Set key = Convert.getConversionTable().keySet();
+
+        for (Object aKey : key)
+            devises.add(aKey.toString());
+    }
+
+    public void chargerSpinner(int idView) {
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, devises);
+
+        Spinner spin = (Spinner) findViewById(idView);
+        spin.setAdapter(adapter);
     }
 }

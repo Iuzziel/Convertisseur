@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        Toast.makeText(getBaseContext(), String.valueOf(findViewById(view.getId())), Toast.LENGTH_LONG).show();
+        Toast.makeText(getBaseContext(), String.valueOf(view.getParent()), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, Convertisseur.class);
         startActivity(intent);
     }
