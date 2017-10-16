@@ -5,6 +5,7 @@
     <string name="start_money">Devise de départ</string>
     <string name="end_money">Devise d\'arrivée</string>
     <string name="amount">Montant</string>
+    <string name="result">Resultat</string>
     <string-array name="listeDevises">
         <item></item>
         <item>Livre</item>

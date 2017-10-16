@@ -6,7 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 import afpa.convertisseur.metier.Convert;
 
@@ -22,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.editMontant);
         Spinner sSource = (Spinner) findViewById(R.id.spinDeviseDepart);
         Spinner sCible = (Spinner) findViewById(R.id.spinDeviseArrivee);
+
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
+        df.setMinimumFractionDigits(0);
+
         try {
             String source = sSource.getSelectedItem().toString();
             String cible = sCible.getSelectedItem().toString();
@@ -29,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
                 Double montant = Double.valueOf(editText.getText().toString());
                 double result = Convert.convertir(source, cible, montant);
                 Toast.makeText(getBaseContext(), String.valueOf(result), Toast.LENGTH_LONG).show();
+                TextView textView = (TextView) findViewById(R.id.tvResultat);
+                textView.setText(String.valueOf(df.format(result)));
             } else {
                 Toast.makeText(getBaseContext(), "Selectionnez les devises", Toast.LENGTH_LONG).show();
             }
