@@ -1,6 +1,7 @@
 package afpa.convertisseur;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,6 +18,7 @@ import java.util.Set;
 import afpa.convertisseur.metier.Convert;
 
 public class Convertisseur extends AppCompatActivity {
+    @NonNull
     private List<String> devises = new ArrayList<String>();
 
     @Override

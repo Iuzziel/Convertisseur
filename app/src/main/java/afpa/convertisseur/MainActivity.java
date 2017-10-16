@@ -2,6 +2,7 @@ package afpa.convertisseur;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -15,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void onClick(View view) {
+    public void onClick(@NonNull View view) {
         Toast.makeText(getBaseContext(), String.valueOf(view.getParent()), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, Convertisseur.class);
         startActivity(intent);

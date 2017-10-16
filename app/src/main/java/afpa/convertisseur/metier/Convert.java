@@ -1,5 +1,7 @@
 package afpa.convertisseur.metier;
 
+import android.support.annotation.NonNull;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,6 +12,7 @@ import java.util.Map;
  */
 public class Convert {
     //private static Map conversionTable = new HashMap();
+    @NonNull
     private static Map<String, Double> conversionTable = new HashMap<String, Double>();
 
     // static fonctionne comme un constructeur dans une classe static
@@ -42,6 +45,7 @@ public class Convert {
      *
      * @return une référence sur la table des devises
      */
+    @NonNull
     public static Map<String, Double> getConversionTable() {
         return conversionTable;
     }

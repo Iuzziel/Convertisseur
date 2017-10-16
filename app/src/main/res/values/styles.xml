@@ -8,4 +8,13 @@
         <item name="colorAccent">@android:color/holo_orange_light</item>
     </style>
 
+    <style name="Afpa" parent="AppTheme">
+        <item name="android:background">@drawable/fond_afpa</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:textColor">#0023A0</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+
 </resources>
