@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Convertisseur</string>
+    <string name="amount">Cantidad</string>
+    <string name="btn_conv">Convertir</string>
+    <string name="btn_quit">Dejar</string>
+    <string name="end_money">Moneda de llegada</string>
+    <string name="menu_Title">Aplicaciones disponibles</string>
+    <string name="opt_Option">Opción</string>
+    <string name="opt_convert">Convertidor</string>
+    <string name="opt_settings">Parámetro</string>
+    <string name="opt_settings_date">Fecha</string>
+    <string name="opt_settings_lang">Lengua</string>
+    <string name="result">Resultado</string>
+    <string name="start_money">Moneda de partida</string>
+    <string name="tmp_Temp">Provisional</string>
+</resources>

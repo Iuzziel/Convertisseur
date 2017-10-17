@@ -1,8 +1,10 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/option"
         android:icon="@drawable/option"
-        android:title="@string/opt_Option">
+        android:title="@string/opt_Option"
+        app:showAsAction="ifRoom">
         <menu android:id="@+id/sousmenu">
             <item
                 android:id="@+id/opt_convert"
@@ -10,6 +12,20 @@
             <item
                 android:id="@+id/item2"
                 android:title="@string/tmp_Temp" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/parametre"
+        android:icon="@drawable/settings"
+        android:title="@string/opt_settings"
+        app:showAsAction="ifRoom">
+        <menu android:id="@+id/opt_settings_sousmenu">
+            <item
+                android:id="@+id/opt_settings_lang"
+                android:title="@string/opt_settings_lang" />
+            <item
+                android:id="@+id/opt_settings_date"
+                android:title="@string/opt_settings_date" />
         </menu>
     </item>
     <item

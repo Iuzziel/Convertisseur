@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Convertisseur</string>
-    <string name="btn_quit">Quitter</string>
-    <string name="btn_conv">Convertir</string>
-    <string name="start_money">Devise de départ</string>
-    <string name="end_money">Devise d\'arrivée</string>
-    <string name="amount">Montant</string>
-    <string name="result">Resultat</string>
-    <string name="menu_Title">Applications disponible</string>
+    <string name="btn_quit">Quit</string>
+    <string name="btn_conv">Converter</string>
+    <string name="start_money">Starting currency</string>
+    <string name="end_money">Arrival Currency</string>
+    <string name="amount">Amount</string>
+    <string name="result">Result</string>
+    <string name="menu_Title">Available apps</string>
     <string-array name="listeDevises">
         <item></item>
         <item>Livre</item>
@@ -17,6 +17,9 @@
         <item>Dirham</item>
     </string-array>
     <string name="opt_Option">Option</string>
-    <string name="opt_convert">Convertisseur</string>
-    <string name="tmp_Temp">Temporaire</string>
+    <string name="opt_convert">Converter</string>
+    <string name="tmp_Temp">Temporary</string>
+    <string name="opt_settings">Settings</string>
+    <string name="opt_settings_date">Date</string>
+    <string name="opt_settings_lang">Language</string>
 </resources>

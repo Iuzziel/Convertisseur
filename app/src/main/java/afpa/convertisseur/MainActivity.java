@@ -2,6 +2,7 @@ package afpa.convertisseur;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -47,6 +48,14 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.item2:
                 // action 2
+                return true;
+            case R.id.opt_settings_date:
+                Intent changerDate = new Intent(Settings.ACTION_DATE_SETTINGS);
+                startActivity(changerDate);
+                return true;
+            case R.id.opt_settings_lang:
+                Intent changerLangue = new Intent(Settings.ACTION_LOCALE_SETTINGS);
+                startActivity(changerLangue);
                 return true;
             case R.id.quitter:
                 finish();
