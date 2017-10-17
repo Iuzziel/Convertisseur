@@ -6,6 +6,7 @@
     <string name="end_money">Devise d\'arrivée</string>
     <string name="amount">Montant</string>
     <string name="result">Resultat</string>
+    <string name="menu_Title">Applications disponible</string>
     <string-array name="listeDevises">
         <item></item>
         <item>Livre</item>
@@ -15,4 +16,7 @@
         <item>Yen</item>
         <item>Dirham</item>
     </string-array>
+    <string name="opt_Option">Option</string>
+    <string name="opt_convert">Convertisseur</string>
+    <string name="tmp_Temp">Temporaire</string>
 </resources>

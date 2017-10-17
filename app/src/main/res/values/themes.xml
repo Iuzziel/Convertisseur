@@ -5,6 +5,5 @@
         <item name="android:windowBackground">@drawable/fond_afpa</item>
         <item name="android:textColor">#A02320</item>
         <item name="android:textSize">30sp</item>
-        <item name="android:font">@font/Capture_it</item>
     </style>
 </resources>

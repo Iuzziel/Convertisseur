@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/option"
+        android:icon="@drawable/option"
+        android:title="@string/opt_Option">
+        <menu android:id="@+id/sousmenu">
+            <item
+                android:id="@+id/opt_convert"
+                android:title="@string/opt_convert" />
+            <item
+                android:id="@+id/item2"
+                android:title="@string/tmp_Temp" />
+        </menu>
+    </item>
+    <item
+        android:id="@+id/quitter"
+        android:icon="@drawable/quit"
+        android:title="@string/btn_quit" />
+</menu>
