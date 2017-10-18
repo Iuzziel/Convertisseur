@@ -35,9 +35,8 @@ public class Convertisseur extends AppCompatActivity {
 
         chargeDevises();
         chargeDevisesBDD();
-        chargerSpinner(R.id.spinDeviseDepart);
-        chargerSpinner(R.id.spinDeviseArrivee);
-        chargerSpinnerBDD(R.id.spBDD);
+        chargerSpinnerBDD(R.id.spinDeviseDepart);
+        chargerSpinnerBDD(R.id.spinDeviseArrivee);
     }
 
     public void onClick(View view) {

@@ -14,4 +14,5 @@
     <string name="result">Resultado</string>
     <string name="start_money">Moneda de partida</string>
     <string name="tmp_Temp">Provisional</string>
+    <string name="flag_desc">Bandera del país localizado</string>
 </resources>
