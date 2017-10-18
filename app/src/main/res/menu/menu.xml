@@ -4,7 +4,7 @@
         android:id="@+id/option"
         android:icon="@drawable/option"
         android:title="@string/opt_Option"
-        app:showAsAction="ifRoom">
+        app:showAsAction="never">
         <menu android:id="@+id/sousmenu">
             <item
                 android:id="@+id/opt_convert"
@@ -14,6 +14,7 @@
                 android:title="@string/tmp_Temp" />
         </menu>
     </item>
+
     <item
         android:id="@+id/parametre"
         android:icon="@drawable/settings"
