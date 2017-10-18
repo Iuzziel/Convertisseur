@@ -8,7 +8,7 @@
     <string name="result">Result</string>
     <string name="menu_Title">Available apps</string>
     <string-array name="listeDevises">
-        <item></item>
+        <item />
         <item>Livre</item>
         <item>Euro</item>
         <item>Francs CFA</item>

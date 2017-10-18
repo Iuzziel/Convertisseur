@@ -3,7 +3,7 @@
 
     <style name="MonStyle">
         <item name="android:windowBackground">@drawable/fond_afpa</item>
-        <item name="android:textColor">#A02320</item>
+        <item name="android:textColor">@color/colorSecondary</item>
         <item name="android:textSize">30sp</item>
     </style>
 </resources>

@@ -28,9 +28,9 @@ public class Convert {
     /**
      * Retourne un Double correspondant au <b>montant</b> en devise <b>source</b> converti en devise <b>cible</b></b>
      *
-     * @param source
-     * @param cible
-     * @param montant
+     * @param source  Devise source
+     * @param cible   Devise Cible
+     * @param montant Montant de la conversion
      * @return le montant en devise cible
      */
     public static double convertir(String source, String cible, double montant) {

@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Afpa"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="afpa.convertisseur.Convertisseur"
@@ -56,29 +57,30 @@
 
     <TextView
         android:id="@+id/tvMontant"
-        android:layout_width="560dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="@string/amount"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinDeviseDepart" />
 
     <EditText
         android:id="@+id/editMontant"
         android:layout_width="560dp"
         android:layout_height="42dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="15dp"
         android:layout_weight="1"
         android:ems="10"
         android:inputType="number|numberDecimal"
-        app:layout_constraintTop_toBottomOf="@+id/tvMontant"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMontant" />
 
     <TextView
         android:id="@+id/tvTitreResut"

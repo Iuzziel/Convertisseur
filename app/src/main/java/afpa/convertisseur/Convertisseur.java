@@ -1,6 +1,5 @@
 package afpa.convertisseur;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +16,8 @@ import java.util.List;
 import java.util.Set;
 
 import afpa.convertisseur.metier.Convert;
+import afpa.convertisseur.modele.Monnaie;
+import afpa.convertisseur.modele.MonnaieManager;
 
 public class Convertisseur extends AppCompatActivity {
     @NonNull
@@ -27,10 +28,28 @@ public class Convertisseur extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convertisseur);
 
+        MonnaieManager monnaieManager = new MonnaieManager(this);
 
-        Intent reponse = new Intent();
-        reponse.putExtra("eofjzqae", false);
-        setResult(1, reponse);
+        Monnaie livre = new Monnaie("Livre", Double.valueOf(0.6404));
+        Monnaie euro = new Monnaie("Euro", Double.valueOf(0.7697));
+        Monnaie dirham = new Monnaie("Dirham", Double.valueOf(8.5656));
+        Monnaie yen = new Monnaie("Yen", Double.valueOf(76.6908));
+        Monnaie francsCFA = new Monnaie("Francs CFA", Double.valueOf(503.17));
+        Monnaie dollarsUS = new Monnaie("Dollars US", Double.valueOf(1.0));
+
+        monnaieManager.open();
+        monnaieManager.insertMonnaie(livre);
+        monnaieManager.insertMonnaie(euro);
+        monnaieManager.insertMonnaie(dirham);
+        monnaieManager.insertMonnaie(yen);
+        monnaieManager.insertMonnaie(francsCFA);
+        monnaieManager.insertMonnaie(dollarsUS);
+
+        Toast.makeText(this, String.valueOf("Depuis la bdd :" + monnaieManager.getMonnaieWithTitre("Livre").getLabel()
+                + " "
+                + monnaieManager.getMonnaieWithTitre("Livre").getValeur()), Toast.LENGTH_LONG).show();
+
+        monnaieManager.close();
 
         chargeDevises();
         chargerSpinner(R.id.spinDeviseDepart);
@@ -69,14 +88,14 @@ public class Convertisseur extends AppCompatActivity {
         System.exit(0);
     }
 
-    public void chargeDevises() {
+    private void chargeDevises() {
         Set key = Convert.getConversionTable().keySet();
 
         for (Object aKey : key)
             devises.add(aKey.toString());
     }
 
-    public void chargerSpinner(int idView) {
+    private void chargerSpinner(int idView) {
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, devises);
 

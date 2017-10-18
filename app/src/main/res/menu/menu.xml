@@ -4,7 +4,7 @@
         android:id="@+id/option"
         android:icon="@drawable/option"
         android:title="@string/opt_Option"
-        app:showAsAction="never">
+        app:showAsAction="ifRoom|withText">
         <menu android:id="@+id/sousmenu">
             <item
                 android:id="@+id/opt_convert"
@@ -19,7 +19,7 @@
         android:id="@+id/parametre"
         android:icon="@drawable/settings"
         android:title="@string/opt_settings"
-        app:showAsAction="ifRoom">
+        app:showAsAction="ifRoom|withText">
         <menu android:id="@+id/opt_settings_sousmenu">
             <item
                 android:id="@+id/opt_settings_lang"
