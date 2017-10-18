@@ -69,6 +69,12 @@ public class MonnaieManager {
         return cursorToMonnaie(c);
     }
 
+    public Cursor getAllMonnaie() {
+        //Récupère dans un Cursor les valeurs correspondant à un livre contenu dans la BDD (ici on sélectionne le livre grâce à son titre)
+        Cursor c = bdd.query(TABLE_MONNAIE, new String[]{COL_ID, COL_LABEL, COL_VALEUR}, null, null, null, null, COL_LABEL + " DESC");
+        return c;
+    }
+
     //Cette méthode permet de convertir un cursor en un livre
     private Monnaie cursorToMonnaie(Cursor c) {
         //si aucun élément n'a été retourné dans la requête, on renvoie null

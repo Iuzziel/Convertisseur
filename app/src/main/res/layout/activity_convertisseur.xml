@@ -164,6 +164,13 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitreResut" />
 
+        <Spinner
+            android:id="@+id/spBDD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/listeDevisesBDD" />
+
         <Button
             android:id="@+id/btn_quit"
             android:layout_width="match_parent"

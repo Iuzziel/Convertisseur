@@ -16,6 +16,9 @@
         <item>Yen</item>
         <item>Dirham</item>
     </string-array>
+    <string-array name="listeDevisesBDD">
+        <item />
+    </string-array>
     <string name="opt_Option">Option</string>
     <string name="opt_convert">Converter</string>
     <string name="tmp_Temp">Temporary</string>

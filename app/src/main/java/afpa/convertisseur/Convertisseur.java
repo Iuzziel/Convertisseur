@@ -1,5 +1,6 @@
 package afpa.convertisseur;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,10 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import afpa.convertisseur.metier.Convert;
@@ -22,38 +26,18 @@ import afpa.convertisseur.modele.MonnaieManager;
 public class Convertisseur extends AppCompatActivity {
     @NonNull
     private List<String> devises = new ArrayList<String>();
+    private List<String> devisesBDD = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_convertisseur);
 
-        MonnaieManager monnaieManager = new MonnaieManager(this);
-
-        Monnaie livre = new Monnaie("Livre", Double.valueOf(0.6404));
-        Monnaie euro = new Monnaie("Euro", Double.valueOf(0.7697));
-        Monnaie dirham = new Monnaie("Dirham", Double.valueOf(8.5656));
-        Monnaie yen = new Monnaie("Yen", Double.valueOf(76.6908));
-        Monnaie francsCFA = new Monnaie("Francs CFA", Double.valueOf(503.17));
-        Monnaie dollarsUS = new Monnaie("Dollars US", Double.valueOf(1.0));
-
-        monnaieManager.open();
-        monnaieManager.insertMonnaie(livre);
-        monnaieManager.insertMonnaie(euro);
-        monnaieManager.insertMonnaie(dirham);
-        monnaieManager.insertMonnaie(yen);
-        monnaieManager.insertMonnaie(francsCFA);
-        monnaieManager.insertMonnaie(dollarsUS);
-
-        Toast.makeText(this, String.valueOf("Depuis la bdd :" + monnaieManager.getMonnaieWithTitre("Livre").getLabel()
-                + " "
-                + monnaieManager.getMonnaieWithTitre("Livre").getValeur()), Toast.LENGTH_LONG).show();
-
-        monnaieManager.close();
-
         chargeDevises();
+        chargeDevisesBDD();
         chargerSpinner(R.id.spinDeviseDepart);
         chargerSpinner(R.id.spinDeviseArrivee);
+        chargerSpinnerBDD(R.id.spBDD);
     }
 
     public void onClick(View view) {
@@ -84,6 +68,7 @@ public class Convertisseur extends AppCompatActivity {
 
     }
 
+    // Chargement depuis la classe Convert et sa Map
     public void onQuit(View view) {
         System.exit(0);
     }
@@ -98,6 +83,56 @@ public class Convertisseur extends AppCompatActivity {
     private void chargerSpinner(int idView) {
         final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item, devises);
+
+        Spinner spin = (Spinner) findViewById(idView);
+        spin.setAdapter(adapter);
+    }
+
+    // Test SQLite
+    private void chargeDevisesBDD() {
+        MonnaieManager monnaieManager = new MonnaieManager(this);
+
+        Monnaie livre = new Monnaie("Livre", Double.valueOf(0.6404));
+        Monnaie euro = new Monnaie("Euro", Double.valueOf(0.7697));
+        Monnaie dirham = new Monnaie("Dirham", Double.valueOf(8.5656));
+        Monnaie yen = new Monnaie("Yen", Double.valueOf(76.6908));
+        Monnaie francsCFA = new Monnaie("Francs CFA", Double.valueOf(503.17));
+        Monnaie dollarsUS = new Monnaie("Dollars US", Double.valueOf(1.0));
+
+        monnaieManager.open();
+        monnaieManager.insertMonnaie(livre);
+        monnaieManager.insertMonnaie(euro);
+        monnaieManager.insertMonnaie(dirham);
+        monnaieManager.insertMonnaie(yen);
+        monnaieManager.insertMonnaie(francsCFA);
+        monnaieManager.insertMonnaie(dollarsUS);
+
+        Cursor c = monnaieManager.getAllMonnaie();
+        Map<String, Double> mapMonnaie = new HashMap<String, Double>();
+
+        c.moveToFirst();
+        do {
+            mapMonnaie.put(c.getString(1), c.getDouble(2));
+        } while (c.moveToNext());
+        c.close();
+
+        Toast.makeText(this, String.valueOf("Depuis la bdd :"
+                + monnaieManager.getMonnaieWithTitre("Livre").getLabel()
+                + " "
+                + monnaieManager.getMonnaieWithTitre("Livre").getValeur()), Toast.LENGTH_LONG).show();
+
+        monnaieManager.close();
+
+        Set key = mapMonnaie.keySet();
+
+        for (Object aKey : key)
+            devisesBDD.add(aKey.toString());
+        Collections.sort(devisesBDD);
+    }
+
+    private void chargerSpinnerBDD(int idView) {
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item, devisesBDD);
 
         Spinner spin = (Spinner) findViewById(idView);
         spin.setAdapter(adapter);
